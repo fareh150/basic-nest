@@ -22,8 +22,8 @@ export class TodoController {
   }
 
   @Get(':id')
-  findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.todoService.findOne(+id);
+  findOne(@Param('id', ParseIntPipe) id: number): Todo {
+    return this.todoService.findOne(id);
   }
 
   @Patch(':id')
