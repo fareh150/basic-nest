@@ -11,8 +11,14 @@ export class TodoService {
     { id: 3, description: 'Buy bread', done: true },
   ];
 
-  create(createTodoDto: CreateTodoDto) {
-    return 'This action adds a new todo';
+  create(createTodoDto: CreateTodoDto): Todo {
+    const todo = new Todo();
+    todo.id = this.todos.length + 1;
+    todo.description = createTodoDto.description;
+
+    this.todos.push(todo);
+    
+    return todo;
   }
 
   findAll(): Todo[] {
