@@ -53,6 +53,8 @@ export class TodoService {
   }
 
   remove(id: number) {
-    return `This action removes a #${id} todo`;
+    const todo = this.findOne(id);
+    this.todos = this.todos.filter(todo => todo.id !== id);
+    return todo;
   }
 }
